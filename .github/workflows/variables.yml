@@ -1,0 +1,16 @@
+name: Exercice Variables
+
+on: [push]
+
+jobs:
+  mon-job:
+    runs-on: ubuntu-latest
+    
+    # Définition de la variable au niveau du job
+    env:
+      PRENOM: "Ahmet" # Remplace ici par ton vrai prénom
+
+    steps:
+      - name: Salutation personnalisée
+        # On utilise le signe $ pour appeler la variable dans un script shell (Ubuntu)
+        run: echo "Bonjour $PRENOM, bienvenue dans le module ICT324"
