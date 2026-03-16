@@ -1,0 +1,20 @@
+name: Lecture de Fichier
+
+on: push
+
+jobs:
+  verification:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Adım: GitHub'daki kodlarını sunucuya indirir
+      - name: Récupération du code
+        uses: actions/checkout@v3
+
+      # 2. Adım: Dosyaların gerçekten orada olup olmadığını listeler
+      - name: Afficher le contenu du dossier
+        run: ls -la
+
+      #Linux sistemlerinde (GitHub Actions ubuntu-latest kullanıyor) bir dosyanın içeriğini terminale yazdırmak için kullanılan standart komut cat (concatenate) komutudur.
+      # 3. Adım: message.txt dosyasının içeriğini ekrana basar
+      - name: Lire le message
+        run: cat message.txt
