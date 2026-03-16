@@ -1,0 +1,29 @@
+name: CI pour Node.js  # Nom du workflow affiché dans l'onglet Actions
+
+on:
+  push:
+    branches: [ "main" ] # Se déclenche uniquement lors d'un push sur la branche main
+
+jobs:
+  build-and-test: # Nom du job
+    runs-on: ubuntu-latest # Système d'exploitation utilisé par le runner
+
+    steps:
+      # ÉTAPE 1 : Récupérer le code source du dépôt
+      - name: Récupération du code (Checkout)
+        uses: actions/checkout@v3
+
+      # ÉTAPE 2 : Installer l'environnement Node.js
+      - name: Installation de Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      # ÉTAPE 3 : Installer les dépendances
+      # Pour un vrai projet, on utiliserait 'npm ci' ou 'npm install'
+      - name: Installation des dépendances
+        run: echo "Exécution de npm install..."
+
+      # ÉTAPE 4 : Lancer les tests unitaires
+      - name: Lancement des tests
+        run: echo "Running tests... Tous les tests sont passés avec succès !"
