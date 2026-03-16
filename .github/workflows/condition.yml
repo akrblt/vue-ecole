@@ -1,0 +1,17 @@
+name: Workflow Conditionnel
+
+on: [push]
+
+jobs:
+  verification-et-deploiement:
+    runs-on: ubuntu-latest
+    steps:
+      # Étape 1 : Simule un test réussi
+      - name: Étape 1 - Simulation de test
+        run: echo "Test OK"
+
+      # Étape 2 : Conditionnelle sur la branche main
+      - name: Étape 2 - Déploiement
+        # On vérifie si la référence (ref) correspond à la branche main
+        if: github.ref == 'refs/heads/main'
+        run: echo "Déploiement en cours..."
